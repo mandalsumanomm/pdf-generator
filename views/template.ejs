@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= data.channel %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 140px;
+            padding: 0px;
+        }
+        .logo {
+            width: 100px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin: 2 4 20px;
+            font-size:x-large;
+            
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+            margin: 0 0 20px;
+        }
+        .content2{
+           margin-top: 40px;
+            font-style:normal;
+            text-align: left;
+        }
+        .signature {
+            margin-top: 90px;
+            font-style: italic;
+            text-align: left;
+        }
+        .date {
+            text-align: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="page">
+        <img src="/images/logo.png" alt="Logo" class="logo">
+        <h1>Syndication Authorization</h1>
+        <div class="content">
+            <p>I, <%= data.name %>, confirm that <%= data.channel %> is authorized to
+             license my short contents to <%= data.channel %> for monetization online.I agree to take a photo holding up this signed letter to confirm its authenticity. This notice will remain valid until I provide written notice stating otherwise to admin@<%= data.channel %>.com.</p>
+            <div class="content2">
+                <p>Social Media Profile Links</p>
+                <p>YT Media</p>
+                <p>Name - <%= data.name %> official</p>
+                <p>Channel Link - <%= data.channel %></p>
+            </div>
+           
+        </div>
+        <div class="signature">
+            <p>Creator’s Signature: <%= data.signature %></p>
+        </div>
+        <div class="date">
+            <p>Date: <%= new Date().toLocaleDateString() %></p>
+        </div>
+        <% if (includeDownloadButton) { %>
+            <a href="/download-pdf/<%= data._id %>" class="download-btn">Download PDF</a>
+        <% } %>
+    </div>
+</body>
+</html>
